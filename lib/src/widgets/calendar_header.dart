@@ -49,7 +49,7 @@ class CalendarHeader extends StatelessWidget {
       child: Row(
         mainAxisSize: MainAxisSize.max,
         children: [
-          if (headerStyle.leftChevronVisible)
+          if (headerStyle.chevronVisible)
             CustomIconButton(
               icon: headerStyle.leftChevronIcon,
               onTap: onLeftChevronTap,
@@ -84,7 +84,7 @@ class CalendarHeader extends StatelessWidget {
                 showsNextFormat: headerStyle.formatButtonShowsNext,
               ),
             ),
-          if (headerStyle.rightChevronVisible)
+          if (headerStyle.chevronVisible)
             CustomIconButton(
               icon: headerStyle.rightChevronIcon,
               onTap: onRightChevronTap,

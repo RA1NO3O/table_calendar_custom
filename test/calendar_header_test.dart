@@ -120,53 +120,18 @@ void main() {
   );
 
   testWidgets(
-    'When leftChevronVisible is false, do not show the left chevron',
+    'When chevronVisible is false, do not show the chevron',
     (tester) async {
       await tester.pumpWidget(
-        setupTestWidget(
-          headerStyle: HeaderStyle(
-            leftChevronVisible: false,
-          ),
-        ),
-      );
+          setupTestWidget(headerStyle: HeaderStyle(chevronVisible: false)));
 
-      final leftChevron = find.widgetWithIcon(
-        CustomIconButton,
-        Icons.chevron_left,
-      );
+      final leftChevron =
+          find.widgetWithIcon(CustomIconButton, Icons.chevron_left);
 
-      final rightChevron = find.widgetWithIcon(
-        CustomIconButton,
-        Icons.chevron_right,
-      );
+      final rightChevron =
+          find.widgetWithIcon(CustomIconButton, Icons.chevron_right);
 
       expect(leftChevron, findsNothing);
-      expect(rightChevron, findsOneWidget);
-    },
-  );
-
-  testWidgets(
-    'When rightChevronVisible is false, do not show the right chevron',
-    (tester) async {
-      await tester.pumpWidget(
-        setupTestWidget(
-          headerStyle: HeaderStyle(
-            rightChevronVisible: false,
-          ),
-        ),
-      );
-
-      final leftChevron = find.widgetWithIcon(
-        CustomIconButton,
-        Icons.chevron_left,
-      );
-
-      final rightChevron = find.widgetWithIcon(
-        CustomIconButton,
-        Icons.chevron_right,
-      );
-
-      expect(leftChevron, findsOneWidget);
       expect(rightChevron, findsNothing);
     },
   );

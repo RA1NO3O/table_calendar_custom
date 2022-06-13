@@ -70,11 +70,8 @@ class HeaderStyle {
   /// Tapping on it will navigate to next calendar page.
   final Widget rightChevronIcon;
 
-  /// Determines left chevron's visibility.
-  final bool leftChevronVisible;
-
-  /// Determines right chevron's visibility.
-  final bool rightChevronVisible;
+  /// Determines chevron's visibility.
+  final bool chevronVisible;
 
   /// Decoration of the header.
   final BoxDecoration decoration;
@@ -101,8 +98,7 @@ class HeaderStyle {
     this.rightChevronMargin = const EdgeInsets.symmetric(horizontal: 8.0),
     this.leftChevronIcon = const Icon(Icons.chevron_left),
     this.rightChevronIcon = const Icon(Icons.chevron_right),
-    this.leftChevronVisible = true,
-    this.rightChevronVisible = true,
+    this.chevronVisible = true,
     this.decoration = const BoxDecoration(),
   });
 }
