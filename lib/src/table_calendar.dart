@@ -644,13 +644,16 @@ class _TableCalendarState<T> extends State<TableCalendar<T>> {
               end: widget.calendarStyle.markersAutoAligned
                   ? null
                   : widget.calendarStyle.markersOffset.end,
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: events
-                    .take(widget.calendarStyle.markersMaxCount)
-                    .map((event) => _buildSingleMarker(day, event, markerSize))
-                    .toList(),
-              ),
+              child: widget.calendarStyle.markersMaxCount == 1
+                  ? _buildSingleMarker(day, events[0], markerSize)
+                  : Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: events
+                          .take(widget.calendarStyle.markersMaxCount)
+                          .map((event) =>
+                              _buildSingleMarker(day, event, markerSize))
+                          .toList(),
+                    ),
             );
           }
 
@@ -674,7 +677,8 @@ class _TableCalendarState<T> extends State<TableCalendar<T>> {
     return widget.calendarBuilders.singleMarkerBuilder
             ?.call(context, day, event) ??
         Container(
-          width: markerSize,
+          //let marker take the whole width
+          width: 50,
           height: markerSize,
           margin: widget.calendarStyle.markerMargin,
           decoration: widget.calendarStyle.markerDecoration,
