@@ -475,6 +475,7 @@ class _TableCalendarState<T> extends State<TableCalendar<T>> {
         Flexible(
           flex: widget.shouldFillViewport ? 1 : 0,
           child: TableCalendarBase(
+            eventLoader: widget.eventLoader,
             onCalendarCreated: (pageController) {
               _pageController = pageController;
               widget.onCalendarCreated?.call(pageController);
@@ -530,7 +531,7 @@ class _TableCalendarState<T> extends State<TableCalendar<T>> {
 
               return dowCell;
             },
-            dayBuilder: (context, day, focusedMonth) {
+            dayBuilder: (context, day, focusedMonth, events) {
               return GestureDetector(
                 behavior: widget.dayHitTestBehavior,
                 onTap: () => _onDayTapped(day),
@@ -611,6 +612,7 @@ class _TableCalendarState<T> extends State<TableCalendar<T>> {
           isWeekend: isWeekend,
           isHoliday: widget.holidayPredicate?.call(day) ?? false,
           locale: widget.locale,
+          eventLoader: widget.eventLoader,
         );
 
         children.add(content);

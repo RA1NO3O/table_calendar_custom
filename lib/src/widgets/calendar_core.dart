@@ -9,7 +9,7 @@ import 'calendar_page.dart';
 typedef _OnCalendarPageChanged = void Function(
     int pageIndex, DateTime focusedDay);
 
-class CalendarCore extends StatelessWidget {
+class CalendarCore<T> extends StatelessWidget {
   final DateTime? focusedDay;
   final DateTime firstDay;
   final DateTime lastDay;
@@ -29,6 +29,9 @@ class CalendarCore extends StatelessWidget {
   final PageController? pageController;
   final ScrollPhysics? scrollPhysics;
   final _OnCalendarPageChanged onPageChanged;
+
+  /// Function that assigns a list of events to a specified day.
+  final List<T> Function(DateTime day)? eventLoader;
 
   const CalendarCore({
     Key? key,
@@ -51,6 +54,7 @@ class CalendarCore extends StatelessWidget {
     this.rowDecoration,
     this.tableBorder,
     this.scrollPhysics,
+    this.eventLoader,
   })  : assert(!dowVisible || (dowHeight != null && dowBuilder != null)),
         super(key: key);
 
@@ -92,10 +96,10 @@ class CalendarCore extends StatelessWidget {
               baseDay =
                   _getFocusedDay(calendarFormat, previousFocusedDay, index);
             }
-
+            final events = eventLoader?.call(day) ?? [];
             return SizedBox(
               height: constrainedRowHeight ?? rowHeight,
-              child: dayBuilder(context, day, baseDay),
+              child: dayBuilder(context, day, baseDay, events),
             );
           },
         );

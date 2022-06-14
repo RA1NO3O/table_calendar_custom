@@ -49,7 +49,7 @@ void main() {
       DateTime? builderDay;
 
       final calendarBuilders = CalendarBuilders(
-        selectedBuilder: (context, day, focusedDay) {
+        selectedBuilder: (context, day, focusedDay, events) {
           builderDay = day;
           return Text('${day.day}');
         },
@@ -73,7 +73,7 @@ void main() {
       DateTime? builderDay;
 
       final calendarBuilders = CalendarBuilders(
-        rangeStartBuilder: (context, day, focusedDay) {
+        rangeStartBuilder: (context, day, focusedDay, events) {
           builderDay = day;
           return Text('${day.day}');
         },
@@ -97,7 +97,7 @@ void main() {
       DateTime? builderDay;
 
       final calendarBuilders = CalendarBuilders(
-        rangeEndBuilder: (context, day, focusedDay) {
+        rangeEndBuilder: (context, day, focusedDay, events) {
           builderDay = day;
           return Text('${day.day}');
         },
@@ -121,7 +121,7 @@ void main() {
       DateTime? builderDay;
 
       final calendarBuilders = CalendarBuilders(
-        withinRangeBuilder: (context, day, focusedDay) {
+        withinRangeBuilder: (context, day, focusedDay, events) {
           builderDay = day;
           return Text('${day.day}');
         },
@@ -145,7 +145,7 @@ void main() {
       DateTime? builderDay;
 
       final calendarBuilders = CalendarBuilders(
-        todayBuilder: (context, day, focusedDay) {
+        todayBuilder: (context, day, focusedDay, events) {
           builderDay = day;
           return Text('${day.day}');
         },
@@ -169,7 +169,7 @@ void main() {
       DateTime? builderDay;
 
       final calendarBuilders = CalendarBuilders(
-        holidayBuilder: (context, day, focusedDay) {
+        holidayBuilder: (context, day, focusedDay, events) {
           builderDay = day;
           return Text('${day.day}');
         },
@@ -193,7 +193,7 @@ void main() {
       DateTime? builderDay;
 
       final calendarBuilders = CalendarBuilders(
-        outsideBuilder: (context, day, focusedDay) {
+        outsideBuilder: (context, day, focusedDay, events) {
           builderDay = day;
           return Text('${day.day}');
         },
@@ -219,7 +219,7 @@ void main() {
         DateTime? builderDay;
 
         final calendarBuilders = CalendarBuilders(
-          defaultBuilder: (context, day, focusedDay) {
+          defaultBuilder: (context, day, focusedDay, events) {
             builderDay = day;
             return Text('${day.day}');
           },
@@ -246,12 +246,12 @@ void main() {
         String builderName = '';
 
         final calendarBuilders = CalendarBuilders(
-          selectedBuilder: (context, day, focusedDay) {
+          selectedBuilder: (context, day, focusedDay, events) {
             builderName = 'selectedBuilder';
             builderDay = day;
             return Text('${day.day}');
           },
-          disabledBuilder: (context, day, focusedDay) {
+          disabledBuilder: (context, day, focusedDay, events) {
             builderName = 'disabledBuilder';
             builderDay = day;
             return Text('${day.day}');
@@ -282,12 +282,12 @@ void main() {
         String builderName = '';
 
         final calendarBuilders = CalendarBuilders(
-          prioritizedBuilder: (context, day, focusedDay) {
+          prioritizedBuilder: (context, day, focusedDay, events) {
             builderName = 'prioritizedBuilder';
             builderDay = day;
             return Text('${day.day}');
           },
-          disabledBuilder: (context, day, focusedDay) {
+          disabledBuilder: (context, day, focusedDay, events) {
             builderName = 'disabledBuilder';
             builderDay = day;
             return Text('${day.day}');

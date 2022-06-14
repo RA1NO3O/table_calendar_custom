@@ -7,7 +7,7 @@ import 'package:simple_gesture_detector/simple_gesture_detector.dart';
 import 'shared/utils.dart';
 import 'widgets/calendar_core.dart';
 
-class TableCalendarBase extends StatefulWidget {
+class TableCalendarBase<T> extends StatefulWidget {
   final DateTime firstDay;
   final DateTime lastDay;
   final DateTime focusedDay;
@@ -33,6 +33,9 @@ class TableCalendarBase extends StatefulWidget {
   final SwipeCallback? onVerticalSwipe;
   final void Function(DateTime focusedDay)? onPageChanged;
   final void Function(PageController pageController)? onCalendarCreated;
+
+  /// Function that assigns a list of events to a specified day.
+  final List<T> Function(DateTime day)? eventLoader;
 
   TableCalendarBase({
     Key? key,
@@ -68,6 +71,7 @@ class TableCalendarBase extends StatefulWidget {
     this.onVerticalSwipe,
     this.onPageChanged,
     this.onCalendarCreated,
+    this.eventLoader,
   })  : assert(!dowVisible || (dowHeight != null && dowBuilder != null)),
         assert(isSameDay(focusedDay, firstDay) || focusedDay.isAfter(firstDay)),
         assert(isSameDay(focusedDay, lastDay) || focusedDay.isBefore(lastDay)),
@@ -242,6 +246,7 @@ class _TableCalendarBaseState extends State<TableCalendarBase> {
               },
               dowBuilder: widget.dowBuilder,
               dayBuilder: widget.dayBuilder,
+              eventLoader: widget.eventLoader,
             ),
           ),
         );

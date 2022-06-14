@@ -29,7 +29,7 @@ void main() {
               firstDay: DateTime.utc(2021, 5, 15),
               lastDay: DateTime.utc(2021, 8, 18),
               focusedDay: focusedDay,
-              dayBuilder: (context, day, focusedDay) {
+              dayBuilder: (context, day, focusedDay, events) {
                 return Text(
                   '${day.day}',
                   key: dateToKey(day),
@@ -75,7 +75,7 @@ void main() {
               firstDay: DateTime.utc(2021, 5, 15),
               lastDay: DateTime.utc(2021, 8, 18),
               focusedDay: focusedDay,
-              dayBuilder: (context, day, focusedDay) {
+              dayBuilder: (context, day, focusedDay, events) {
                 return Text(
                   '${day.day}',
                   key: dateToKey(day),
@@ -121,7 +121,7 @@ void main() {
               firstDay: DateTime.utc(2021, 5, 15),
               lastDay: DateTime.utc(2021, 8, 18),
               focusedDay: focusedDay,
-              dayBuilder: (context, day, focusedDay) {
+              dayBuilder: (context, day, focusedDay, events) {
                 return Text(
                   '${day.day}',
                   key: dateToKey(day),
@@ -167,7 +167,7 @@ void main() {
               firstDay: DateTime.utc(2021, 5, 15),
               lastDay: DateTime.utc(2021, 8, 18),
               focusedDay: focusedDay,
-              dayBuilder: (context, day, focusedDay) {
+              dayBuilder: (context, day, focusedDay, events) {
                 return Text(
                   '${day.day}',
                   key: dateToKey(day),
@@ -213,7 +213,7 @@ void main() {
               firstDay: DateTime.utc(2021, 5, 15),
               lastDay: DateTime.utc(2021, 8, 18),
               focusedDay: focusedDay,
-              dayBuilder: (context, day, focusedDay) {
+              dayBuilder: (context, day, focusedDay, events) {
                 return Text(
                   '${day.day}',
                   key: dateToKey(day),
@@ -259,7 +259,7 @@ void main() {
               firstDay: DateTime.utc(2021, 5, 15),
               lastDay: DateTime.utc(2021, 8, 18),
               focusedDay: focusedDay,
-              dayBuilder: (context, day, focusedDay) {
+              dayBuilder: (context, day, focusedDay, events) {
                 return Text(
                   '${day.day}',
                   key: dateToKey(day),
@@ -310,7 +310,7 @@ void main() {
             firstDay: DateTime.utc(2021, 5, 15),
             lastDay: DateTime.utc(2021, 8, 18),
             focusedDay: focusedDay,
-            dayBuilder: (context, day, focusedDay) {
+            dayBuilder: (context, day, focusedDay, events) {
               return Text(
                 '${day.day}',
                 key: dateToKey(day),
@@ -361,7 +361,7 @@ void main() {
               firstDay: DateTime.utc(2021, 5, 15),
               lastDay: DateTime.utc(2021, 8, 18),
               focusedDay: DateTime.utc(2021, 7, 15),
-              dayBuilder: (context, day, focusedDay) {
+              dayBuilder: (context, day, focusedDay, events) {
                 return Text(
                   '${day.day}',
                   key: dateToKey(day),
