@@ -179,9 +179,9 @@ class CellContent<T> extends StatelessWidget {
     }
 
     return Semantics(
-      label: semanticsLabel,
-      excludeSemantics: true,
-      child: cell,
-    );
+        label: semanticsLabel,
+        excludeSemantics: true,
+        child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 4), child: cell));
   }
 }
