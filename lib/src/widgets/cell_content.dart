@@ -21,6 +21,7 @@ class CellContent<T> extends StatelessWidget {
   final bool isDisabled;
   final bool isHoliday;
   final bool isWeekend;
+  final EdgeInsets padding;
   final CalendarStyle calendarStyle;
   final CalendarBuilders calendarBuilders;
 
@@ -45,6 +46,7 @@ class CellContent<T> extends StatelessWidget {
     required this.isWeekend,
     this.locale,
     this.eventLoader,
+    required this.padding,
   }) : super(key: key);
 
   @override
@@ -179,9 +181,11 @@ class CellContent<T> extends StatelessWidget {
     }
 
     return Semantics(
-      label: semanticsLabel,
-      excludeSemantics: true,
-      child: cell,
-    );
+        label: semanticsLabel,
+        excludeSemantics: true,
+        child: Padding(
+          padding: padding,
+          child: cell,
+        ));
   }
 }
